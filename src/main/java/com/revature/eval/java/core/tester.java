@@ -1,18 +1,19 @@
 package com.revature.eval.java.core;
-
+import java.text.DecimalFormat;
 public class tester {
 
 	public static void main(String[] args) {
-		System.out.println(toMilesPerHour(-5));
+		System.out.println(printConversion(1.5));
 
 	}
-	public static long toMilesPerHour(double kilometersPerHour) {
-		//check parms < 0;
-		
+	public static String printConversion(double kilometersPerHour) {
+		String retString;
 		if(kilometersPerHour < 0) {
-			return -1;
+			return "Invalid Value";
 		}
 		long mph = Math.round(kilometersPerHour / 1.609);
-		return mph;
+		DecimalFormat dec = new DecimalFormat("0.##");
+		retString = dec.format(kilometersPerHour) + " km/h = " + dec.format(mph) + " mi/h";
+		return retString ;
 	}
 }

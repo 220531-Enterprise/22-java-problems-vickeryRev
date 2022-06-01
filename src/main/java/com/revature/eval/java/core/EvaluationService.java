@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Map;
 
@@ -46,8 +47,14 @@ public class EvaluationService {
 		 * Value"
 		 */
 		public static String printConversion(double kilometersPerHour) {
-			// TODO Write an implementation for this method declaration
-			return null;
+			String retString;
+			if(kilometersPerHour < 0) {
+				return "Invalid Value";
+			}
+			long mph = Math.round(kilometersPerHour / 1.609);
+			DecimalFormat dec = new DecimalFormat("0.##");
+			retString = dec.format(kilometersPerHour) + " km/h = " + dec.format(mph) + " mi/h";
+			return retString ;
 		}
 	}
 
