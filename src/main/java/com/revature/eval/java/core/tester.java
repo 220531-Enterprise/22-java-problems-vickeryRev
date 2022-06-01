@@ -3,17 +3,16 @@ import java.text.DecimalFormat;
 public class tester {
 
 	public static void main(String[] args) {
-		System.out.println(printConversion(1.5));
+		System.out.println(shouldWakeUp(true, 9));
 
 	}
-	public static String printConversion(double kilometersPerHour) {
-		String retString;
-		if(kilometersPerHour < 0) {
-			return "Invalid Value";
+	public static boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
+		if(hourOfDay > 23 || hourOfDay < 0 || !isBarking ) {
+			return false;
 		}
-		long mph = Math.round(kilometersPerHour / 1.609);
-		DecimalFormat dec = new DecimalFormat("0.##");
-		retString = dec.format(kilometersPerHour) + " km/h = " + dec.format(mph) + " mi/h";
-		return retString ;
+		else if((hourOfDay < 8 || hourOfDay > 22) && isBarking) {
+			return true;
+		}
+		return false;
 	}
 }

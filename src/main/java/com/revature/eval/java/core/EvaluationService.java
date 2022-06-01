@@ -78,9 +78,14 @@ public class EvaluationService {
 	 * If the parameter kiloBytes is less than 0 then print the text "Invalid
 	 * Value".
 	 */
-	public String printMegaBytesAndKiloBytes(int XX) {
-		// TODO Write an implementation for this method declaration
-		return null;
+	public String printMegaBytesAndKiloBytes(int KB) {
+		int MB, KBr;
+		if(KB < 0) {
+			return "Invalid Value.";
+		}
+		MB = KB / 1024;
+		KBr = KB % 1024;
+		return KB +" KB = " + MB + " MB and " + KBr + " KB"; 
 	}
 
 	/**
@@ -103,7 +108,12 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		// TODO Write an implementation for this method declaration
+		if(hourOfDay > 23 || hourOfDay < 0 || !isBarking ) {
+			return false;
+		}
+		else if((hourOfDay < 8 || hourOfDay > 22) && isBarking) {
+			return true;
+		}
 		return false;
 	}
 
