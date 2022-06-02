@@ -129,8 +129,14 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		firstNum = ((int)(firstNum*1000)/1000.000);
+		secondNum = ((int)(secondNum*1000)/1000.000);
+		System.out.println(firstNum + " " + secondNum);
+		if(firstNum == secondNum) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	/**
