@@ -152,7 +152,13 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			// TODO Write an implementation for this method declaration
+			int[] nums = {x,y,z};
+			
+			for(int i = 0; i < nums.length; i++) {
+				if(nums[i] >= 13 && nums [i] <= 19) {
+					return true;
+				}
+			}
 			return false;
 		}
 

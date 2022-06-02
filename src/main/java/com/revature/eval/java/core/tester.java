@@ -3,19 +3,18 @@ import java.text.DecimalFormat;
 public class tester {
 
 	public static void main(String[] args) {
-		System.out.println(areEqualByThreeDecimalPlaces(-3.1769, -3.1762
-				));
+		System.out.println(hasTeen(5,15,5));
 
 	}
-	public static boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		System.out.println(firstNum + " " + secondNum);
-		firstNum = ((int)(firstNum*1000)/1000.000);
-		secondNum = ((int)(secondNum*1000)/1000.000);
-		System.out.println(firstNum + " " + secondNum);
-		if(firstNum == secondNum) {
-			return true;
-		}else {
-			return false;
+	public static boolean hasTeen(int x, int y, int z) {
+		int[] nums = {x,y,z};
+		
+		for(int i = 0; i < nums.length; i++) {
+			if(nums[i] >= 13 && nums [i] <= 19) {
+				
+				return true;
+			}
 		}
+		return false;
 	}
 }
