@@ -3,23 +3,19 @@ import java.text.DecimalFormat;
 public class tester {
 
 	public static void main(String[] args) {
-		System.out.println(getGreatestCommonDivisor(25000, 25150));
+		System.out.println(sumFirstAndLastDigit(257));
 
 	}
-	public static int getGreatestCommonDivisor(int first, int second) {
-		if(first < 10 || second < 10) {
-			return -1;
+	public static int sumFirstAndLastDigit(int num) {
+		int first = num, second = num;
+		while(first > 9) {
+			first /= 10;
 		}
-		else {
-			while(first != 0 && second != 0) {
-				if(first > second) {
-					first %= second;
-				}
-				else {
-					second %= first;
-				}	 
-			}
-			return first | second;
+		while(second > 9) {
+			second %= 10;
 		}
+		
+		
+		return first + second;
 	}
 }
