@@ -187,8 +187,15 @@ public class EvaluationService {
 	 * ZZ represents the calculated days.
 	 */
 	public String printYearsAndDays(long minutes) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		long days, years;
+		if(minutes == 0) {
+			return "Invalid Value";
+		}
+		else {
+			years = minutes / 525600;
+			days = (minutes % 525600) / 1440;
+			return String.format("%d min = %d y and %d d", minutes, years ,days);
+		}
 	}
 
 	/**

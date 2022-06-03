@@ -3,18 +3,20 @@ import java.text.DecimalFormat;
 public class tester {
 
 	public static void main(String[] args) {
-		System.out.println(hasTeen(5,15,5));
+		System.out.println(printYearsAndDays(561600));
 
 	}
-	public static boolean hasTeen(int x, int y, int z) {
-		int[] nums = {x,y,z};
-		
-		for(int i = 0; i < nums.length; i++) {
-			if(nums[i] >= 13 && nums [i] <= 19) {
-				
-				return true;
-			}
+	public static String printYearsAndDays(long minutes) {
+		long days, years;
+		if(minutes == 0) {
+			System.out.println("Invalid Value");
 		}
-		return false;
+		else {
+			years = minutes / 525600;
+			days = (minutes % 525600) / 1440 ;
+			System.out.println(String.format("%d min = %d y and %d day", minutes, years ,days));
+		}
+		
+		return null;
 	}
 }
