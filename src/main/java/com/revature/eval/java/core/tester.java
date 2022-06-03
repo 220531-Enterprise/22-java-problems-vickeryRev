@@ -3,19 +3,14 @@ import java.text.DecimalFormat;
 public class tester {
 
 	public static void main(String[] args) {
-		System.out.println(sumFirstAndLastDigit(257));
+		System.out.println(reverse("tim"));
 
 	}
-	public static int sumFirstAndLastDigit(int num) {
-		int first = num, second = num;
-		while(first > 9) {
-			first /= 10;
+	public static String reverse(String string) {
+		String retString = "";
+		for(int i = string.length()-1 ; i >= 0; i--) {
+			retString += string.charAt(i);
 		}
-		while(second > 9) {
-			second %= 10;
-		}
-		
-		
-		return first + second;
+		return retString;
 	}
 }
