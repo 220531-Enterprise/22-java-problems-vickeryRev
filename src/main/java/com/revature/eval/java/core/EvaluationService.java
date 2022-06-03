@@ -239,8 +239,27 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		if(first < 10 || second < 10) {
+			return -1;
+		}
+		else {
+			while(first != 0 && second != 0) {
+				if(first > second) {
+					first %= second;
+				}
+				else {
+					second %= first;
+				}	 
+			}
+
+		}
+		if(first == 0) {
+			return second;
+		}
+		else {
+			return first;
+		}
 	}
 
 	/**
