@@ -488,8 +488,26 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		return null;
+		 
+		String retString = "";
+		for (int i = 0; i < string.length(); i++) {
+
+			if (Character.isLetter(string.charAt(i))) {
+				throw new IllegalArgumentException("can't have letters in a phone number");
+			}
+
+			else if (Character.isDigit(string.charAt(i))) {
+
+				retString += string.charAt(i);
+			}
+
+		}
+		if (retString.length() > 10) {
+			throw new IllegalArgumentException();
+		}
+		return retString;
 	}
+		
 
 	/**
 	 * 15. Recurring Word Counter
