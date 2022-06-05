@@ -25,9 +25,9 @@ public class EvaluationService {
 	static class SpeedConverter {
 
 		public static long toMilesPerHour(double kilometersPerHour) {
-			//check parms < 0;
-			
-			if(kilometersPerHour < 0) {
+			// check parms < 0;
+
+			if (kilometersPerHour < 0) {
 				return -1;
 			}
 			long mph = Math.round(kilometersPerHour / 1.609);
@@ -51,13 +51,13 @@ public class EvaluationService {
 		 */
 		public static String printConversion(double kilometersPerHour) {
 			String retString;
-			if(kilometersPerHour < 0) {
+			if (kilometersPerHour < 0) {
 				return "Invalid Value";
 			}
 			long mph = Math.round(kilometersPerHour / 1.609);
 			DecimalFormat dec = new DecimalFormat("0.##");
 			retString = dec.format(kilometersPerHour) + " km/h = " + dec.format(mph) + " mi/h";
-			return retString ;
+			return retString;
 		}
 	}
 
@@ -83,12 +83,12 @@ public class EvaluationService {
 	 */
 	public String printMegaBytesAndKiloBytes(int KB) {
 		int MB, KBr;
-		if(KB < 0) {
+		if (KB < 0) {
 			return "Invalid Value.";
 		}
 		MB = KB / 1024;
 		KBr = KB % 1024;
-		return KB +" KB = " + MB + " MB and " + KBr + " KB"; 
+		return KB + " KB = " + MB + " MB and " + KBr + " KB";
 	}
 
 	/**
@@ -111,10 +111,9 @@ public class EvaluationService {
 	 * If the hourOfDay parameter is less than 0 or greater than 23, return false.
 	 */
 	public boolean shouldWakeUp(boolean isBarking, int hourOfDay) {
-		if(hourOfDay > 23 || hourOfDay < 0 || !isBarking ) {
+		if (hourOfDay > 23 || hourOfDay < 0 || !isBarking) {
 			return false;
-		}
-		else if((hourOfDay < 8 || hourOfDay > 22) && isBarking) {
+		} else if ((hourOfDay < 8 || hourOfDay > 22) && isBarking) {
 			return true;
 		}
 		return false;
@@ -132,12 +131,12 @@ public class EvaluationService {
 	 * Otherwise, return false;
 	 */
 	public boolean areEqualByThreeDecimalPlaces(double firstNum, double secondNum) {
-		firstNum = ((int)(firstNum*1000)/1000.000);
-		secondNum = ((int)(secondNum*1000)/1000.000);
+		firstNum = ((int) (firstNum * 1000) / 1000.000);
+		secondNum = ((int) (secondNum * 1000) / 1000.000);
 		System.out.println(firstNum + " " + secondNum);
-		if(firstNum == secondNum) {
+		if (firstNum == secondNum) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
@@ -155,10 +154,10 @@ public class EvaluationService {
 	static class TeenNumberChecker {
 
 		public static boolean hasTeen(int x, int y, int z) {
-			int[] nums = {x,y,z};
-			
-			for(int i = 0; i < nums.length; i++) {
-				if(nums[i] >= 13 && nums [i] <= 19) {
+			int[] nums = { x, y, z };
+
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] >= 13 && nums[i] <= 19) {
 					return true;
 				}
 			}
@@ -191,13 +190,12 @@ public class EvaluationService {
 	 */
 	public String printYearsAndDays(long minutes) {
 		long days, years;
-		if(minutes == 0) {
+		if (minutes == 0) {
 			return "Invalid Value";
-		}
-		else {
+		} else {
 			years = minutes / 525600;
 			days = (minutes % 525600) / 1440;
-			return String.format("%d min = %d y and %d d", minutes, years ,days);
+			return String.format("%d min = %d y and %d d", minutes, years, days);
 		}
 	}
 
@@ -211,15 +209,14 @@ public class EvaluationService {
 	 * statement or switch statement whatever is easier for you.
 	 */
 	public String printNumberInWord(int number) {
-		String[] words = {"ZERO", "ONE", "TWO" , "THREE" , "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "OTHER"};
-		
-		if(number < 0 || number > 9) {
+		String[] words = { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "OTHER" };
+
+		if (number < 0 || number > 9) {
 			return words[10];
-		}
-		else {
+		} else {
 			return words[number];
 		}
-		
+
 	}
 
 	/**
@@ -242,25 +239,22 @@ public class EvaluationService {
 	 * and there is no resulting remainder.
 	 */
 	public int getGreatestCommonDivisor(int first, int second) {
-		
-		if(first < 10 || second < 10) {
+
+		if (first < 10 || second < 10) {
 			return -1;
-		}
-		else {
-			while(first != 0 && second != 0) {
-				if(first > second) {
+		} else {
+			while (first != 0 && second != 0) {
+				if (first > second) {
 					first %= second;
-				}
-				else {
+				} else {
 					second %= first;
-				}	 
+				}
 			}
 
 		}
-		if(first == 0) {
+		if (first == 0) {
 			return second;
-		}
-		else {
+		} else {
 			return first;
 		}
 	}
@@ -280,17 +274,16 @@ public class EvaluationService {
 	 */
 	public int sumFirstAndLastDigit(int num) {
 		int first = num, second = num;
-		if(num < 0) {
+		if (num < 0) {
 			return -1;
 		}
-		while(first > 9) {
+		while (first > 9) {
 			first /= 10;
 		}
-		while(second > 9) {
+		while (second > 9) {
 			second %= 10;
 		}
-		
-		
+
 		return first + second;
 	}
 
@@ -302,7 +295,7 @@ public class EvaluationService {
 	 */
 	public static String reverse(String string) {
 		String retString = "";
-		for(int i = string.length()-1 ; i >= 0; i--) {
+		for (int i = string.length() - 1; i >= 0; i--) {
 			retString += string.charAt(i);
 		}
 		return retString;
@@ -317,13 +310,13 @@ public class EvaluationService {
 	 */
 	public String acronym(String phrase) {
 		String[] splited = phrase.split("[-_'\\s+]");
-		
+
 		String retString = "";
-		for(int i = 0; i < splited.length; i++) {
+		for (int i = 0; i < splited.length; i++) {
 			retString += splited[i].charAt(0) + "";
 		}
-		
-		return  retString.toUpperCase() ;
+
+		return retString.toUpperCase();
 	}
 
 	/**
@@ -378,18 +371,29 @@ public class EvaluationService {
 		}
 
 		public boolean isEquilateral() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if (sideOne == sideTwo && sideOne == sideThree) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		public boolean isIsosceles() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if(sideOne == sideTwo || sideOne == sideThree || sideTwo == sideThree) {
+				return true;
+			}
+			else{
+				return false;
+			}
 		}
 
 		public boolean isScalene() {
-			// TODO Write an implementation for this method declaration
-			return false;
+			if(!this.isEquilateral() && !this.isIsosceles()) {
+				return true;
+			}
+			else {
+				return false;
+			}
 		}
 
 	}
@@ -411,44 +415,42 @@ public class EvaluationService {
 	public int getScrabbleScore(String string) {
 
 		int score = 0;
-		//... why dose java not have .contains for arrays!
-		String[] one = {"a", "e", "i", "o", "u", "l", "n", "r", "s", "t"};
+		// ... why dose java not have .contains for arrays!
+		String[] one = { "a", "e", "i", "o", "u", "l", "n", "r", "s", "t" };
 		List<String> oneList = new ArrayList<>(Arrays.asList(one));
-		String[] two = {"d", "g"};
+		String[] two = { "d", "g" };
 		List<String> twoList = new ArrayList<>(Arrays.asList(two));
-		String[] three = {"b", "c", "m", "p"};
+		String[] three = { "b", "c", "m", "p" };
 		List<String> threeList = new ArrayList<>(Arrays.asList(three));
-		String[] four = {"f", "h", "v", "w", "y"};
+		String[] four = { "f", "h", "v", "w", "y" };
 		List<String> fourList = new ArrayList<>(Arrays.asList(four));
-		String[] five = {"k"};
+		String[] five = { "k" };
 		List<String> fiveList = new ArrayList<>(Arrays.asList(five));
-		String[] eight = {"j", "x"};
+		String[] eight = { "j", "x" };
 		List<String> eightList = new ArrayList<>(Arrays.asList(eight));
-		String[] ten = {"q", "z"};
+		String[] ten = { "q", "z" };
 		List<String> tenList = new ArrayList<>(Arrays.asList(ten));
-		
+
 		string = string.toLowerCase();
-		for(int i = 0; i < string.length(); i++) {
-			if(twoList.contains(String.valueOf(string.charAt(i)))) {
-				score +=1 ;
-			}else if(threeList.contains(String.valueOf(string.charAt(i)))){
-					score += 3;
-			}else if(fourList.contains(String.valueOf(string.charAt(i)))){
-				score +=4;
-			}else if(fiveList.contains((String.valueOf(string.charAt(i))))){
-				score +=5;
-			}else if(eightList.contains(String.valueOf(string.charAt(i)))) {
-				score +=8;
-			}else if(tenList.contains((String.valueOf(string.charAt(i))))){
-				score+=10;
-			}else {
-				score+=1;
+		for (int i = 0; i < string.length(); i++) {
+			if (twoList.contains(String.valueOf(string.charAt(i)))) {
+				score += 1;
+			} else if (threeList.contains(String.valueOf(string.charAt(i)))) {
+				score += 3;
+			} else if (fourList.contains(String.valueOf(string.charAt(i)))) {
+				score += 4;
+			} else if (fiveList.contains((String.valueOf(string.charAt(i))))) {
+				score += 5;
+			} else if (eightList.contains(String.valueOf(string.charAt(i)))) {
+				score += 8;
+			} else if (tenList.contains((String.valueOf(string.charAt(i))))) {
+				score += 10;
+			} else {
+				score += 1;
 			}
-					
+
 		}
-		
-		
-		
+
 		return score;
 	}
 
@@ -567,7 +569,7 @@ public class EvaluationService {
 	}
 
 	/**
-	 * 20. Sum of Multiples 
+	 * 20. Sum of Multiples
 	 * 
 	 * Given a number, find the sum of all the unique multiples of particular
 	 * numbers up to but not including that number.
@@ -580,31 +582,32 @@ public class EvaluationService {
 	public int getSumOfMultiples(int i, int[] set) {
 		return 0;
 	}
-	
+
 	/**
 	 * 21. Three Magic Numbers
 	 * 
-	 * You work at a casino in Las Vegas.  Your job is to program a slot machine to
+	 * You work at a casino in Las Vegas. Your job is to program a slot machine to
 	 * return 3 random numbers using the java.util.Random class.
 	 * 
 	 * Write a method to return an int array of 3 random numbers between 1 - 100.
-	 * Generate the 3 random numbers (1 - 100 inclusive) using the java.util.Random class.
+	 * Generate the 3 random numbers (1 - 100 inclusive) using the java.util.Random
+	 * class.
 	 */
-	
+
 	public int[] threeLuckyNumbers() {
 		return null;
 	}
-	
+
 	/*
 	 * 22. Easy Guessing Game
 	 * 
-	 * Create a program to generate a number between the given range:
-	 * int x = minimum
-	 * iny y = maximum (inclusive)
+	 * Create a program to generate a number between the given range: int x =
+	 * minimum iny y = maximum (inclusive)
 	 * 
-	 * You must use the Math.random class to generate a random number between x and y.
+	 * You must use the Math.random class to generate a random number between x and
+	 * y.
 	 */
-	
+
 	public int guessingGame(int x, int y) {
 		return 0;
 	}
