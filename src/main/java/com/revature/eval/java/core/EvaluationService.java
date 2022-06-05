@@ -313,8 +313,14 @@ public class EvaluationService {
 	 * long name like Portable Network Graphics to its acronym (PNG).
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		String[] splited = phrase.split("[-_'\\s+]");
+		
+		String retString = "";
+		for(int i = 0; i < splited.length; i++) {
+			retString += splited[i].charAt(0) + "";
+		}
+		
+		return  retString.toUpperCase() ;
 	}
 
 	/**

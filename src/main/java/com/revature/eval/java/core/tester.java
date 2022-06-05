@@ -3,14 +3,17 @@ import java.text.DecimalFormat;
 public class tester {
 
 	public static void main(String[] args) {
-		System.out.println(reverse("tim"));
+		System.out.println(reverse("tim Bob Marrly pok-iey"));
 
 	}
-	public static String reverse(String string) {
+	public static String reverse(String phrase) {
+		String[] splited = phrase.split("[-_'\\s+]");
+		
 		String retString = "";
-		for(int i = string.length()-1 ; i >= 0; i--) {
-			retString += string.charAt(i);
+		for(int i = 0; i < splited.length; i++) {
+			retString += splited[i].charAt(0) + "";
 		}
-		return retString;
+		
+		return  retString.toUpperCase() ;
 	}
 }
