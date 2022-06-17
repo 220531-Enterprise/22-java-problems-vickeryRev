@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -545,8 +546,7 @@ public class EvaluationService {
 	public boolean isArmstrongNumber(int input) {
 		char[] dig = String.valueOf(input).toCharArray();
 		int i = 0;
-		
-		
+
 		for (char c : dig) {
 			i = i + (int) Math.pow(Integer.parseInt(String.valueOf(c)), dig.length);
 		}
@@ -566,9 +566,24 @@ public class EvaluationService {
 	 * Note that 1 is not a prime number.
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		List<Long> longBois = new LinkedList<Long>();
+		while(l % 2 == 0) {
+			longBois.add(2L);
+			l /= 2;
+		}
+		for (long iL = 3; iL <= Math.sqrt(l); iL+=2) {
+			while(l % iL == 0) {
+				longBois.add(iL);
+				l /= iL;
+			}
+		}
+		if(l > 2) {
+			longBois.add(l);
+		}
+		return longBois;
 	}
+
+	
 
 	/**
 	 * 18. Calculate Nth Prime
