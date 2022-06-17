@@ -380,19 +380,17 @@ public class EvaluationService {
 		}
 
 		public boolean isIsosceles() {
-			if(sideOne == sideTwo || sideOne == sideThree || sideTwo == sideThree) {
+			if (sideOne == sideTwo || sideOne == sideThree || sideTwo == sideThree) {
 				return true;
-			}
-			else{
+			} else {
 				return false;
 			}
 		}
 
 		public boolean isScalene() {
-			if(!this.isEquilateral() && !this.isIsosceles()) {
+			if (!this.isEquilateral() && !this.isIsosceles()) {
 				return true;
-			}
-			else {
+			} else {
 				return false;
 			}
 		}
@@ -489,7 +487,7 @@ public class EvaluationService {
 	 * NANP-countries, only 1 is considered a valid country code.
 	 */
 	public String cleanPhoneNumber(String string) {
-		 
+
 		String retString = "";
 		for (int i = 0; i < string.length(); i++) {
 
@@ -508,7 +506,6 @@ public class EvaluationService {
 		}
 		return retString;
 	}
-		
 
 	/**
 	 * 15. Recurring Word Counter
@@ -519,14 +516,13 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		Map<String,Integer> count = new HashMap<String, Integer>();
+		Map<String, Integer> count = new HashMap<String, Integer>();
 		String[] splatid = string.split("[\\s,]+");
-		for(int i = 0; i < splatid.length; i++) {
-			if(count.containsKey(splatid[i])) {
-				count.put(splatid[i],count.get(splatid[i]) +1 );
-			}
-			else {
-			count.put(splatid[i], 1);
+		for (int i = 0; i < splatid.length; i++) {
+			if (count.containsKey(splatid[i])) {
+				count.put(splatid[i], count.get(splatid[i]) + 1);
+			} else {
+				count.put(splatid[i], 1);
 			}
 		}
 		return count;
@@ -547,7 +543,18 @@ public class EvaluationService {
 	 * a number is an Armstrong number.
 	 */
 	public boolean isArmstrongNumber(int input) {
-		return false;
+		char[] dig = String.valueOf(input).toCharArray();
+		int i = 0;
+		
+		
+		for (char c : dig) {
+			i = i + (int) Math.pow(Integer.parseInt(String.valueOf(c)), dig.length);
+		}
+		if (i == input) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	/**
