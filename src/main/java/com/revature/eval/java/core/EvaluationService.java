@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -518,8 +519,17 @@ public class EvaluationService {
 	 * free: 1
 	 */
 	public Map<String, Integer> wordCount(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		Map<String,Integer> count = new HashMap<String, Integer>();
+		String[] splatid = string.split("[\\s,]+");
+		for(int i = 0; i < splatid.length; i++) {
+			if(count.containsKey(splatid[i])) {
+				count.put(splatid[i],count.get(splatid[i]) +1 );
+			}
+			else {
+			count.put(splatid[i], 1);
+			}
+		}
+		return count;
 	}
 
 	/**
