@@ -8,6 +8,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
+import javax.xml.stream.events.Characters;
 
 public class EvaluationService {
 
@@ -639,8 +642,22 @@ public class EvaluationService {
 	 * insensitive. Input will not contain non-ASCII symbols.
 	 */
 	public boolean isPangram(String string) {
-		// TODO Write an implementation for this method declaration
-		return false;
+		String trimed = string.toLowerCase().trim();
+		char[] stc = trimed.toCharArray();
+		Set<Character> words = new HashSet<>();
+		for(char c : stc) {
+			words.add(c);
+		}
+		char[] letters = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+		
+		
+		for(int i = 0; i < letters.length; i++) {
+			
+			if(!words.contains((Character)letters[i])) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
