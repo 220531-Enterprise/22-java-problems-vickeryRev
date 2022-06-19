@@ -597,8 +597,33 @@ public class EvaluationService {
 	 * numbers, pretend they don't exist and implement them yourself.
 	 */
 	public int calculateNthPrime(int k) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		if(k == 0) {
+			IllegalArgumentException iae =
+					new IllegalArgumentException();
+			throw iae;
+		}
+		int prime = 0;
+		int count = 0;
+		int i = 2;
+		while(count < k) {
+			if (isPrime(i)) {
+				count++;
+				prime = i;
+			}
+			i++;
+		}
+		
+		return prime;
+	}
+	
+	public boolean isPrime(int i) {
+		for(int ii = 2; ii < i; ii++) {
+			if(i % ii ==0) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
