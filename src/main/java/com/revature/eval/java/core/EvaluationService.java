@@ -8,9 +8,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
-
-import javax.xml.stream.events.Characters;
 
 public class EvaluationService {
 
@@ -89,7 +88,7 @@ public class EvaluationService {
 	public String printMegaBytesAndKiloBytes(int KB) {
 		int MB, KBr;
 		if (KB < 0) {
-			return "Invalid Value.";
+			return "Invalid Value";
 		}
 		MB = KB / 1024;
 		KBr = KB % 1024;
@@ -672,7 +671,20 @@ public class EvaluationService {
 	 * The sum of these multiples is 78.
 	 */
 	public int getSumOfMultiples(int i, int[] set) {
-		return 0;
+		System.out.println("__________________");
+		int sum = 0;
+		for(int ii = 1; ii <= i-1; ii++ ) {
+			for(int j =0; j < set.length; j++ ) {
+				if(ii % set[j] == 0) {
+					sum = sum + ii;
+					System.out.println(ii);
+					System.out.println(sum);
+					System.out.println("__________________");
+					break;
+				}
+			}
+		}
+		return sum;
 	}
 
 	/**
@@ -687,7 +699,12 @@ public class EvaluationService {
 	 */
 
 	public int[] threeLuckyNumbers() {
-		return null;
+		
+		int[] nums = new int[3];
+		for(int i = 0; i < nums.length; i++) {
+			nums[i] = (int) (Math.random() * 100) +1;
+		}
+		return nums;
 	}
 
 	/*
@@ -701,6 +718,7 @@ public class EvaluationService {
 	 */
 
 	public int guessingGame(int x, int y) {
-		return 0;
+		int i = (int) (Math.random() * y) +x;
+		return i;
 	}
 }
